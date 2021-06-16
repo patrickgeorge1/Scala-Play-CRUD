@@ -6,11 +6,7 @@
 GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
 
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(file)
 
 GET  /hello/:name        controllers.HomeController.hello(name: String)
 
@@ -18,3 +14,6 @@ GET  /hello/:name        controllers.HomeController.hello(name: String)
 GET     /users                      controllers.UsersController.getUsers
 
 GET     /users/:id                  controllers.UsersController.getUser(id: Long)
+
+
+GET     /async                      controllers.AsyncController.serveAsyncResponse

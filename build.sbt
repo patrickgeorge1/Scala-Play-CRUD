@@ -16,8 +16,7 @@ lazy val root = (project in file("."))
 
          // Async work
       "org.scala-lang.modules" %% "scala-async" % "0.10.0",
-       "org.scala-lang" % "scala-reflect" % scalaVersion.value % Provided
-
+       "org.scala-lang" % "scala-reflect" % scalaVersion.value % Provided,
 ),
     scalacOptions ++= Seq(
       "-feature",

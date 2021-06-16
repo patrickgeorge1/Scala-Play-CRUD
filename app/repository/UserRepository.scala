@@ -7,6 +7,7 @@ import slick.jdbc.JdbcProfile
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
+import configuration.Contexts.{simpleDbLookupsContext, expensiveDbLookupsContext, expensiveCpuOperationsContext, dbWriteOperationsContext}
 
 
 class UserRepository  @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {

@@ -5,12 +5,15 @@ import play.api.libs.json._
 import play.api.mvc._
 
 import javax.inject.Inject
-import scala.concurrent.{ExecutionContext}
+import scala.concurrent.ExecutionContext
+
 import scala.language.postfixOps
 
 
-class UsersController @Inject()(cc: MessagesControllerComponents, userService: UserService)(implicit ec: ExecutionContext)
-    extends MessagesAbstractController(cc) {
+
+class UsersController @Inject()(cc: MessagesControllerComponents,
+                                userService: UserService)
+                               (implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
     def index: Action[AnyContent] = Action {
         Ok("It s ok")
