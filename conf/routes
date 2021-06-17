@@ -17,3 +17,5 @@ GET     /users/:id                  controllers.UsersController.getUser(id: Long
 
 
 GET     /async                      controllers.AsyncController.serveAsyncResponse
+
+GET     /filtered                   controllers.FilteredController.index
