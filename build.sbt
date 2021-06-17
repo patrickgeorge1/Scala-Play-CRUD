@@ -4,7 +4,7 @@ lazy val root = (project in file("."))
     name := """play-scala-starter-example""",
     version := "1.0-SNAPSHOT",
     scalaVersion := "2.13.6",
-    libraryDependencies ++= Seq(
+      libraryDependencies ++= Seq(
       guice,
       "com.h2database" % "h2" % "1.4.199",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
@@ -17,7 +17,11 @@ lazy val root = (project in file("."))
          // Async work
       "org.scala-lang.modules" %% "scala-async" % "0.10.0",
        "org.scala-lang" % "scala-reflect" % scalaVersion.value % Provided,
-),
+
+        // testing
+        "org.scalatestplus" %% "mockito-3-4" % "3.2.9.0" % "test",
+
+    ),
     scalacOptions ++= Seq(
       "-feature",
       "-deprecation",

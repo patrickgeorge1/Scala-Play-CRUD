@@ -17,7 +17,11 @@ Mention that multiple ExecutionContexts (ThreadPools) were created in applicatio
 
 ## filtering with Actions / Middlewares
 
-Created base action "FilterableAction" (Regular Action + map) and "Filters" that can be applied to it
+Created action builder "FilterAction" that transform (Request => Request + hashMap) and "Filters" that can be applied to it
 
 Go and see FilteredController
 
+
+## testing
+
+Created test/services/UserServiceSpecTest where I mocked userRepository and instructed the mock how to return when is called
