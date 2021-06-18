@@ -25,3 +25,7 @@ Go and see FilteredController
 ## testing
 
 Created test/services/UserServiceSpecTest where I mocked userRepository and instructed the mock how to return when is called
+
+## logging
+
+logs/custom.log added CUSTOM_FILE and invoked in classes

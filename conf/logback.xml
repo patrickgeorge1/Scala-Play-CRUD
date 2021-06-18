@@ -10,6 +10,20 @@
     </encoder>
   </appender>
 
+
+          <!--  This appender log only [info] messages    -->
+  <appender name="CUSTOM_FILE" class="ch.qos.logback.core.FileAppender">
+      <file>${application.home:-.}/logs/custom.log</file>
+      <filter class="ch.qos.logback.classic.filter.LevelFilter">
+        <level>INFO</level>
+        <onMatch>ACCEPT</onMatch>
+        <onMismatch>DENY</onMismatch>
+      </filter>
+      <encoder>
+        <pattern>%date [%level] in  %logger - %message%n%xException{10}</pattern>
+      </encoder>
+      </appender>
+
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>%coloredLevel %logger{15} - %message%n%xException{10}</pattern>
@@ -27,15 +41,23 @@
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
 
+
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
   <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
   <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" />
   <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" />
   <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
 
-  <root level="WARN">
+
+  <root level="INFO">
     <appender-ref ref="ASYNCFILE" />
     <appender-ref ref="ASYNCSTDOUT" />
+    <appender-ref ref="CUSTOM_FILE" />
   </root>
 
+
 </configuration>
+
+
+
+

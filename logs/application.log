@@ -1,143 +1,22 @@
-2021-06-18 01:08:26,553 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-5 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2021-06-18 21:38:16,311 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-4 - Slf4jLogger started
+2021-06-18 21:38:16,459 [INFO] from services.ApplicationTimer in play-dev-mode-akka.actor.default-dispatcher-4 - ApplicationTimer demo: Starting application at 2021-06-18T18:38:16.458Z.
+2021-06-18 21:38:16,497 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2021-06-18 01:08:26,643 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-5 - Application started (Dev) (no global state)
-2021-06-18 01:08:26,787 [WARN] from com.zaxxer.hikari.util.DriverDataSource in application-akka.actor.default-dispatcher-4 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2021-06-18 01:08:57,014 [ERROR] from play.api.http.JsonHttpErrorHandler in application-akka.actor.default-dispatcher-4 - 
-
-! @7k4pkdnfa - Internal server error, for (GET) [/users/2] ->
- 
-play.api.PlayException: Execution exception[[SQLTransientConnectionException: db - Connection is not available, request timed out after 30003ms.]]
-	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$3(HttpErrorHandler.scala:388)
-	at scala.Option.getOrElse(Option.scala:201)
-	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:388)
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
-	at play.api.http.JsonHttpErrorHandler.onServerError(HttpErrorHandler.scala:443)
-	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
-	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
-	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-Caused by: java.sql.SQLTransientConnectionException: db - Connection is not available, request timed out after 30003ms.
-	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:676)
-	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:190)
-	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:155)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)
-	at slick.jdbc.hikaricp.HikariCPJdbcDataSource.createConnection(HikariCPJdbcDataSource.scala:14)
-	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
-	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
-	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
-	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:250)
-	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:249)
-	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
-	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:275)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:833)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:453)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
-	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:706)
-	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:692)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	... 3 common frames omitted
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89)
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:953)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:823)
-	... 14 common frames omitted
-Caused by: java.net.ConnectException: Connection refused (Connection refused)
-	at java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:607)
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63)
-	... 17 common frames omitted
-2021-06-18 01:09:06,663 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-23-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
-2021-06-18 01:09:06,665 [INFO] from play.core.server.AkkaHttpServer in pool-23-thread-9 - Stopping Akka HTTP server...
-2021-06-18 01:09:06,673 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
-2021-06-18 01:09:11,694 [WARN] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-8 - Coordinated shutdown phase [service-unbind] timed out after 5000 milliseconds
-2021-06-18 01:09:11,702 [ERROR] from play.api.http.JsonHttpErrorHandler in application-akka.actor.default-dispatcher-5 - 
-
-! @7k4pkej8b - Internal server error, for (GET) [/users] ->
- 
-play.api.PlayException: Execution exception[[SQLException: db - Interrupted during connection acquisition]]
-	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$3(HttpErrorHandler.scala:388)
-	at scala.Option.getOrElse(Option.scala:201)
-	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:388)
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
-	at play.api.http.JsonHttpErrorHandler.onServerError(HttpErrorHandler.scala:443)
-	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
-	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
-	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-Caused by: java.sql.SQLException: db - Interrupted during connection acquisition
-	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:194)
-	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:155)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:100)
-	at slick.jdbc.hikaricp.HikariCPJdbcDataSource.createConnection(HikariCPJdbcDataSource.scala:14)
-	at slick.jdbc.JdbcBackend$BaseSession.<init>(JdbcBackend.scala:494)
-	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:46)
-	at slick.jdbc.JdbcBackend$DatabaseDef.createSession(JdbcBackend.scala:37)
-	at slick.basic.BasicBackend$DatabaseDef.acquireSession(BasicBackend.scala:250)
-	at slick.basic.BasicBackend$DatabaseDef.acquireSession$(BasicBackend.scala:249)
-	at slick.jdbc.JdbcBackend$DatabaseDef.acquireSession(JdbcBackend.scala:37)
-	at slick.basic.BasicBackend$DatabaseDef$$anon$3.run(BasicBackend.scala:275)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.InterruptedException: null
-	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:944)
-	at com.zaxxer.hikari.util.ConcurrentBag.borrow(ConcurrentBag.java:157)
-	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:173)
-	... 13 common frames omitted
-2021-06-18 01:09:11,704 [WARN] from akka.http.impl.engine.server.GracefulTerminatorStage in play-dev-mode-akka.actor.default-dispatcher-7 - Terminating server (deadline exceeded), discarding user reply since arrived after deadline expiration
-2021-06-18 01:09:15,350 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Running provided shutdown stop hooks
-2021-06-18 01:09:20,817 [WARN] from com.zaxxer.hikari.util.DriverDataSource in application-akka.actor.default-dispatcher-4 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-06-18 21:38:16,620 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev) (no global state)
+2021-06-18 21:38:16,790 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-5 - am logat bai baiatule
+2021-06-18 21:38:16,790 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:16,806 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-4 - db - Starting...
+2021-06-18 21:38:16,814 [WARN] from com.zaxxer.hikari.util.DriverDataSource in application-akka.actor.default-dispatcher-4 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-06-18 21:38:16,830 [INFO] from com.zaxxer.hikari.HikariDataSource in application-akka.actor.default-dispatcher-4 - db - Start completed.
+2021-06-18 21:38:17,350 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:17,535 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:17,777 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:17,986 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:18,182 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:18,378 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:18,556 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule
+2021-06-18 21:38:18,713 [INFO] from controllers.UsersController in application-akka.actor.default-dispatcher-4 - am logat bai baiatule

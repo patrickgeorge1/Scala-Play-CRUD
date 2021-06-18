@@ -1,7 +1,7 @@
 package services
 
 import models.User
-import org.mockito.ArgumentMatchers.{any, anyLong}
+import org.mockito.ArgumentMatchers.{any, anyLong, anyObject}
 import org.scalatestplus.play._
 import org.mockito.Mockito._
 import org.scalatestplus.mockito.MockitoSugar
@@ -31,7 +31,7 @@ object UserServiceSpecTest {
         }
         Future.successful(randomUser)
     })
-    when(userRepository.insert(any[User])).thenReturn(Future.successful(scala.util.Random.nextInt(1000)))
+    when(userRepository.insert(any())).thenReturn(Future.successful(scala.util.Random.nextInt(1000)))
     when(userRepository.update(anyLong(), any[User])).thenReturn(Future.successful(scala.util.Random.nextInt(1000)))
     when(userRepository.delete(anyLong())).thenReturn(Future.successful(scala.util.Random.nextInt(1000)))
 }
